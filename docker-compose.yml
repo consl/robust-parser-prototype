@@ -1,0 +1,16 @@
+services:
+  parser-demo:
+    build: .
+    container_name: parser-demo
+    restart: unless-stopped
+    environment:
+      - TARGET_URL=https://quotes.toscrape.com
+      - OUTPUT_PATH=/data/output.json
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./data:/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
