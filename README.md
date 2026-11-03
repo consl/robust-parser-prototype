@@ -1,6 +1,6 @@
-# Parser Prototype (Apify-Ready Architecture)
+﻿# Parser Prototype (Apify-Ready Architecture)
 
-Устойчивый шаблон парсера на Python, готовый к запуску в Docker и легкой адаптации под Apify Actors.
+Устойчивый шаблон парсера на Python, готовый к запуску в Docker и легкой адаптации под Apify Actors.🚀
 
 ## Особенности
 - **Надежность:** Автоматические повторные попытки (retries) с экспоненциальной задержкой через `tenacity`.
