@@ -7,16 +7,16 @@ logger = logging.getLogger(__name__)
 
 def parse_catalog_page(url: str) -> List[Dict[str, Any]]:
     """
-    Parses the catalog page and return a list of products. 
-Adapted for the structure of quotes.toscrape.com for demonstration purposes.
+    Parses the catalog page and returns a list of items.
+    Adapted to the quotes.toscrape.com structure for demonstration.
     """
     try:
         resp = fetch_with_retry(url)
-        # lxml быстрее и устойчивее к сломанному HTML, чем html.parser
+        # lxml is faster and more resilient to broken HTML than html.parser
         soup = BeautifulSoup(resp.text, "lxml")
 
         items = []
-        # Selectors for the demo site (in a real-world scenario, these would be .product-card, etc.).
+        # Selectors for the demo site (in a real scenario, these would be .product-card, etc.)
         for card in soup.select(".quote"):
             text_el = card.select_one(".text")
             author_el = card.select_one(".author")
