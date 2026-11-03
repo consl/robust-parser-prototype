@@ -2,7 +2,7 @@ FROM python:3.13-slim
 
 WORKDIR /app
 
-# Устанавливаем переменную окружения, чтобы Python видел пакет src
+# Set environment variable so Python can find the src package
 ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
 
@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY src/ ./src/
 
-# Значения по умолчанию, которые можно переопределить в docker-compose
+# Default values that can be overridden in docker-compose
 ENV TARGET_URL="https://quotes.toscrape.com"
 ENV OUTPUT_PATH="/data/output.json"
 ENV LOG_LEVEL="INFO"
