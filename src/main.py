@@ -4,7 +4,7 @@ import logging
 from pathlib import Path
 from .parser import parse_catalog_page
 
-# Настраиваем логирование: уровень, формат, вывод в stdout (для Docker)
+# Configuring logging: level, format, and output to stdout (for Docker)
 logging.basicConfig(
     level=os.getenv("LOG_LEVEL", "INFO").upper(),
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
@@ -19,7 +19,7 @@ def main() -> None:
 
     items = parse_catalog_page(url)
 
-    # Гарантируем создание директории, если её нет
+    # Ensure the directory is created if it does not exist
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     
     with open(output_path, "w", encoding="utf-8") as f:

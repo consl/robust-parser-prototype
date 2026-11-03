@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 )
 def fetch_with_retry(url: str, timeout: int = 10, **kwargs) -> requests.Response:
     """
-    Выполняет HTTP GET запрос с экспоненциальной задержкой при ошибках.
+    Performs an HTTP GET request with exponential backoff in case of errors.
     """
     logger.info("Fetching URL: %s", url)
     resp = requests.get(url, timeout=timeout, **kwargs)

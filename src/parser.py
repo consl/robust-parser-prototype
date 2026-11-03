@@ -7,8 +7,8 @@ logger = logging.getLogger(__name__)
 
 def parse_catalog_page(url: str) -> List[Dict[str, Any]]:
     """
-    Парсит страницу каталога и возвращает список товаров.
-    Адаптировано под структуру quotes.toscrape.com для демонстрации.
+    Parses the catalog page and return a list of products. 
+Adapted for the structure of quotes.toscrape.com for demonstration purposes.
     """
     try:
         resp = fetch_with_retry(url)
@@ -16,7 +16,7 @@ def parse_catalog_page(url: str) -> List[Dict[str, Any]]:
         soup = BeautifulSoup(resp.text, "lxml")
 
         items = []
-        # Селекторы для демо-сайта (в реальности будут .product-card и т.д.)
+        # Selectors for the demo site (in a real-world scenario, these would be .product-card, etc.).
         for card in soup.select(".quote"):
             text_el = card.select_one(".text")
             author_el = card.select_one(".author")
